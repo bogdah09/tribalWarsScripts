@@ -42,6 +42,16 @@ async function run_all()
 
     $.ajax({url:window.location.href.split("scavenge")[0] + "units", success:successfunc});
 
+    if ((window.location.href.indexOf('village=5530') >= 0) || (window.location.href.indexOf('village=4791') >= 0)) {
+        $("[class='arrowRight']").click();
+        $("[class='groupRight']").click();
+        setTimeout(function(){
+            console.log("reloading");
+            location.reload();
+        }, 2000);
+        return;
+    }
+
     setTimeout(function(){
         console.log("changing_page");
         $("[class='arrowRight']").click();
@@ -50,14 +60,8 @@ async function run_all()
         setTimeout(function(){
             console.log("reloading");
             location.reload();
-       }, 2000)
+       }, 2000);
     }, refresh_time*1000*(1 + 0.2*Math.random()));
-	
-	if ((window.location.href.indexOf('village=5530') >= 0) || (window.location.href.indexOf('village=4791') >= 0) {
-		$("[class='arrowRight']").click();
-        $("[class='groupRight']").click();
-	}
-	
 }
 
 function myconsolelog(arg)
